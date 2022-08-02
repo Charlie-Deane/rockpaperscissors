@@ -1,0 +1,137 @@
+body{
+    background-color: white;
+}
+
+#headerSection{
+    background-color: black;
+    color: white;
+    flex: 1;
+    justify-content: center;
+}
+
+#header{
+    display: flex;
+    justify-content: center;
+}
+
+#bodySection{
+    background-color: white;
+    padding: 16px;
+}
+
+#selectorAndScore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#footerSection{
+    color: white;
+    background-color: black;
+    flex: 1;
+    padding-bottom: 33%;
+}
+
+#selector{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+#scorer div{
+    color: white;
+    flex: 1;
+}
+
+#scoreBoard{
+    /*display: flex;*/
+    flex-direction: column;
+    flex: 1;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+}
+
+#lockIn{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#submission{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    font-size: 36px;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 8px;
+    border-color: black;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+#submission:hover{
+    background-color: yellow;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    font-size: 38px;
+    transition: 50ms;
+}
+
+.selection{
+    border-style: solid;
+    border-width: 4px;
+    border-color: black;
+    border-radius: 8px;
+}
+
+.selection img{
+    width: 250px;
+    height: 250px;
+    padding: 8px;
+}
+
+.selection img:hover{
+    width: 266px;
+    height: 266px;
+    padding: 0px;
+    transition: 200ms;
+}
+
+#scoreHeader{
+    margin-bottom: -15px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+#humanScore{
+    margin-bottom: -15px;
+}
+
+#selectorAndScore p{
+    margin-left: 8%;
+}
+
+h1{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 72px;
+}
+
+h2{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p{
+    font-family: 'Courier New', Courier, monospace;
+}
