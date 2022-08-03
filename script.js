@@ -1,7 +1,7 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
-function getComputerChoice()
+function getComputerChoice() //randomly selects for the computer
 {
     switch(getRandomInt(3))
     {
@@ -19,7 +19,7 @@ function getComputerChoice()
     }
 }
 
-function getHumanChoice(humanInput)
+function getHumanChoice(humanInput) //check humanInput for input errors in evaluation syntax
 {
     humanInput = humanInput.trim(); //remove whitespace
     humanInput = humanInput.toUpperCase(); // make input all caps for continuity
@@ -95,18 +95,58 @@ function playRound(computerChoice, humanChoice)
     return winner;
 }
 
+function printHumanScore(id, score)
+{
+    const container = document.getElementById(id);
+    container.textContent = `HUMAN: ${score}`;
+}
+
+function printComputerScore(id, score)
+{
+    const container = document.getElementById(id);
+    container.textContent = `COMPUTER: ${score}`;
+}
+
+function removeBorders(e) //reset all selection borders to black
+{
+    e.forEach((button) => {
+        button.setAttribute('style', 'border-color: black;');
+        });
+}
+
+//intialize variables
 let humanScore = 0;
 let computerScore = 0;
 let humanInput;
 let computerChoice;
+let humanTentative = "hello";
 let humanChoice;
 let winner;
 
-while (humanScore < 6 && computerScore < 6)
-{
-    humanInput = window.prompt("Choose your weapon! Rock, Paper, or Scissors?");
-    computerChoice = getComputerChoice(); // select computer choice
-    humanChoice = getHumanChoice(humanInput); // truncuate humanInput for use
+
+
+//add event listener on selection elements
+const selections = document.querySelectorAll('.selection');
+selections.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        humanTentative = button.id;
+        removeBorders(selections);
+        button.setAttribute('style', 'border-color: yellow;');
+    });
+  });
+
+
+//add event handler for lock in button -- start the process of the game onclick
+const lockInButton = document.querySelector("#lockIn");
+lockInButton.onclick = () => {
+
+    //lock in choices for evaluation
+    humanChoice = getHumanChoice(humanTentative);
+    computerChoice = getComputerChoice();
+
+    //tally scores
     winner = playRound(computerChoice, humanChoice);
     if (winner == "HUMAN")
     {
@@ -116,5 +156,36 @@ while (humanScore < 6 && computerScore < 6)
     {
         computerScore++;
     }
-    alert(`You have won ${humanScore} and the computer has won ${computerScore}`);
-}
+
+    //update gui
+    printHumanScore('humanScore', humanScore);
+    printComputerScore('computerScore', computerScore);
+    removeBorders(selections);
+
+    //reset for next round to prevent errors
+    humanTentative = null;
+    humanChoice = null;
+    computerChoice = null;
+
+    //check for set winners
+    if (humanScore == 5)
+    {
+        printHumanScore('humanScore', humanScore);
+        printComputerScore('computerScore', computerScore);
+        alert("YOU WIN THE SET!")
+        humanScore = 0;
+        computerScore = 0;
+        printHumanScore('humanScore', humanScore);
+        printComputerScore('computerScore', computerScore);
+    }
+    if(computerScore == 5)
+    {
+        printHumanScore('humanScore', humanScore);
+        printComputerScore('computerScore', computerScore);
+        alert("THE COMPUTER WINS THIS SET! TRY AGAIN!")
+        humanScore = 0;
+        computerScore = 0;
+        printHumanScore('humanScore', humanScore);
+        printComputerScore('computerScore', computerScore);
+    }
+};

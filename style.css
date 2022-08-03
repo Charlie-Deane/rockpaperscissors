@@ -93,6 +93,9 @@ body{
     border-width: 4px;
     border-color: black;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .selection img{
@@ -101,12 +104,13 @@ body{
     padding: 8px;
 }
 
-.selection img:hover{
-    width: 266px;
-    height: 266px;
-    padding: 0px;
+/*.selection img:hover{
+    width: 264px;
+    height: 264px;
+    padding: 2px;
     transition: 200ms;
-}
+    -webkit-transition: 200ms;
+}*/
 
 #scoreHeader{
     margin-bottom: -15px;
