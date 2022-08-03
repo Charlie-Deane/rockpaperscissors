@@ -117,6 +117,9 @@ function removeBorders(e) //reset all selection borders to black
 //intialize variables
 let humanScore = 0;
 let computerScore = 0;
+printHumanScore('humanScore', humanScore);
+printComputerScore('computerScore', computerScore);
+
 let humanInput;
 let computerChoice;
 let humanTentative = "hello";
@@ -170,8 +173,6 @@ lockInButton.onclick = () => {
     //check for set winners
     if (humanScore == 5)
     {
-        printHumanScore('humanScore', humanScore);
-        printComputerScore('computerScore', computerScore);
         alert("YOU WIN THE SET!")
         humanScore = 0;
         computerScore = 0;
@@ -180,8 +181,6 @@ lockInButton.onclick = () => {
     }
     if(computerScore == 5)
     {
-        printHumanScore('humanScore', humanScore);
-        printComputerScore('computerScore', computerScore);
         alert("THE COMPUTER WINS THIS SET! TRY AGAIN!")
         humanScore = 0;
         computerScore = 0;
